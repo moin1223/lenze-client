@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
 
 const ServiceDetail = () => {
-    const [allService,setAllSerVice] = useContext(UserContext);
+    const [allService] = useContext(UserContext);
     const {_id} = useParams ();
-    const service=allService.find(td=>td._id==_id);
+    const service=allService.find(td=>td._id === _id);
     console.log(service?.ServiceName)
     return (
          

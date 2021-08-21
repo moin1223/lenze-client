@@ -14,6 +14,7 @@ import Sidebar from './components/Dashboard/Sidebar/Sidebar';
 import OrderList from './components/Dashboard/OrderList/OrderList';
 import MyOrders from './components/Dashboard/MyOrders/MyOrders';
 import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
+import Login from  './components/Login/Login'
 export const UserContext = createContext();
 
 
@@ -52,8 +53,9 @@ function App() {
         <Route path="/addAdmin">
           <AddAdmin/>
         </Route>
-       
-       
+        <Route path="/login">
+          <Login/>
+        </Route>
    
    
     </Switch>

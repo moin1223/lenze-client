@@ -10,7 +10,7 @@ const MySingleOrder = (props) => {
     const history = useHistory();
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/deleteOrder/${_id}`, {
+        fetch(`https://ancient-scrubland-17514.herokuapp.com/deleteOrder/${_id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

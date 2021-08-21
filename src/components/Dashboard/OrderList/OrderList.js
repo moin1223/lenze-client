@@ -7,7 +7,7 @@ const OrderList = () => {
     const [admissions, setAdmissions] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/Orders`)
+        fetch(`https://ancient-scrubland-17514.herokuapp.com/Orders`)
             .then(res => res.json())
             .then(data =>  setAdmissions(data))
     },[])

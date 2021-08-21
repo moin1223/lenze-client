@@ -30,7 +30,7 @@ const Checkout = () => {
         e.preventDefault();
         // if (registrationData.date) {
          
-            fetch('http://localhost:5000/addOrder', {
+            fetch('https://ancient-scrubland-17514.herokuapp.com/addOrder', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(registrationData)
@@ -47,7 +47,7 @@ const Checkout = () => {
     // }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${_id}`)
+        fetch(`https://ancient-scrubland-17514.herokuapp.com/service/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setService(data);
