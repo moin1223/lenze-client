@@ -11,7 +11,7 @@ const Services = () => {
         fetch('https://ancient-scrubland-17514.herokuapp.com/Services')
             .then(res => res.json())
             .then(data => setAllSerVice(data))
-    }, [])
+    }, [(setAllSerVice)])
 
     return (
         <>
