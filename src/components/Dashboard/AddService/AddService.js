@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Sidebar from '../Sidebar/Sidebar';
 
 const AddService = () => {
     
@@ -46,7 +47,7 @@ const AddService = () => {
     return (
         <section className="container-fluid row">
             <div className="col-md-4">
-            {/* <Sidebar></Sidebar> */}
+            <Sidebar></Sidebar>
             </div>
         
         <div className="col-md-8 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>

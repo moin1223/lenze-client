@@ -18,7 +18,7 @@ const Checkout = () => {
         setRegistrationData(newRegistrationData);
     }
 
-    const handleChange = (e) =>{
+    const handleChange = (e) => {
         const newRegistrationData = { ...registrationData };
         newRegistrationData.address = e.target.value;
         newRegistrationData.Phone = e.target.value;
@@ -29,21 +29,21 @@ const Checkout = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // if (registrationData.date) {
-         
-            fetch('https://ancient-scrubland-17514.herokuapp.com/addOrder', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(registrationData)
+
+        fetch('https://ancient-scrubland-17514.herokuapp.com/addOrder', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(registrationData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert('Your registration is successfully done')
+                history.replace('/');
             })
-                .then(res => res.json())
-                .then(data => {
-                    alert('Your registration is successfully done')
-                    history.replace('/');
-                })
-        }
-        // else {
-        //     alert('Please select date')
-        // }
+    }
+    // else {
+    //     alert('Please select date')
+    // }
     // }
 
     useEffect(() => {
@@ -57,23 +57,26 @@ const Checkout = () => {
                 newRegistrationData.img = data.img
                 setRegistrationData(newRegistrationData)
             })
-    }, [_id,registrationData])
+    }, [_id, registrationData])
 
     return (
-        <div className="container">
-            <div className="d-flex justify-content-center">
-                <form className="form-control m-5" onSubmit={handleSubmit}>
-                    <h3>Register as a volunteer</h3>
-                    <input type="text" name="userName" placeholder="userName" value={user?.name} /> <br /><br />
-                    <input type="text" name="eventName" placeholder="eventName" value={service.ServiceName} /> <br /><br />
-                    <textarea cols="100" rows="5" type="text" name="price" value={service.price} placeholder="Description" /> <br /><br />
-                    <input type="text" onChange={handleChange} name="address" placeholder="Address" /> <br /><br />
-                    <input type="text" onChange={handleChange} name="Phone" placeholder="Phone Numver" /> <br /><br />   
-                    <input type="date" onChange={handleDateChange} name="date" /> <br /><br />
-                    <button className="btn btn-primary">Registration</button>
-                </form>
-            </div>
+        <div className="container border m-5 p-5 ">
+
+            <form className="" onSubmit={handleSubmit}>
+                <h3 className="text-center">Comfirm Your Order</h3>
+                <input className="form-label" type="text" name="userName" placeholder="userName" value={user?.name} /> <br /><br />
+                <input type="text" name="eventName" placeholder="eventName" value={service.ServiceName} /> <br /><br />
+                <input type="text" name="price" value={service.price} placeholder="Description" /> <br /><br />
+                <input type="text" onChange={handleChange} name="address" placeholder="Address" /> <br /><br />
+                <input type="text" onChange={handleChange} name="Phone" placeholder="Phone Numver" /> <br /><br />
+                <input type="date" onChange={handleDateChange} name="date" /> <br /><br />
+                <button className="bookButton">Submit</button>
+            </form>
+
         </div>
+    
+
+
     );
 };
 
