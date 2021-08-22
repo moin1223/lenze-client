@@ -5,12 +5,12 @@ const About = () => {
     return (
         <section className="container">
         <div className="row">
-        <div className="col-md-6  border d-flex justify-content-center">
+        <div className="col-md-6 mt-5   d-flex justify-content-center">
                 <img  style ={{height:"400px"}}className="img-fluid" src={aboutimg} alt="..." />
             </div>
 
 
-            <div className="col-md-6 border d-flex justify-content-center align-items-center">
+            <div className="col-md-6 mt-5  d-flex justify-content-center align-items-center">
                 <div className="w-50">
                     <h5>About Our Company</h5>
                     <h3>How We Can Help you</h3>

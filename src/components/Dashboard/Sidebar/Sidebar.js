@@ -22,13 +22,13 @@ const Sidebar = () => {
            {  isAdmin &&
             <>
          
-                 <Link to='/addAdmin'><h3>OrderList</h3></Link>
-                <Link to='/orderList'><h3>OrderList</h3></Link>
-                <Link to="/addService"><h3>Add Service</h3></Link>
+                 <Link className="text-decoration-none" to='/addAdmin'><h3>Add Admin</h3></Link>
+                <Link className="text-decoration-none" to='/orderList'><h3>OrderList</h3></Link>
+                <Link className="text-decoration-none" to="/addService"><h3>Add Service</h3></Link>
              </>
-        }
+        } 
             
-            <Link to="/myOrder"><h3>Your Order</h3></Link>
+            <Link className="text-decoration-none" to="/myOrder"><h3>Your Order</h3></Link>
             
             
         </div>

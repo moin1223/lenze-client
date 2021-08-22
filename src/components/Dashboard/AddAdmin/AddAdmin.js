@@ -42,7 +42,7 @@ const AddAdmin = () => {
             </div>
         
         <div className="col-md-8 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
-            <h5 className="text-brand">Add a Course</h5>
+            <h5 className="text-brand">Add Service</h5>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Name</label>

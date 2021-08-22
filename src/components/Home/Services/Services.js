@@ -15,7 +15,7 @@ const Services = () => {
 
     return (
         <>
-            <section className="container border">
+            <section className="container mt-5 mb-5">
                 <div className="row">
                     {
                         allService.map(service => <Service service={service} key={service._id} ></Service>)

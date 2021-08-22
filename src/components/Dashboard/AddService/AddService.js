@@ -18,7 +18,8 @@ const AddService = () => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+ 
 
         const formData = new FormData()
         console.log(info);

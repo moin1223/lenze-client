@@ -15,6 +15,8 @@ import OrderList from './components/Dashboard/OrderList/OrderList';
 import MyOrders from './components/Dashboard/MyOrders/MyOrders';
 import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
 import Login from  './components/Login/Login'
+import Header from './components/Home/Header/Header';
+import PrivateRoute from './components/Login/PrivateRoute'
 export const UserContext = createContext();
 
 
@@ -25,6 +27,7 @@ function App() {
     
 <UserContext.Provider value={[allService,setAllSerVice]}>
   <Router>
+    <Header/>
     <Switch>
     <Route path="/home">
           <Home />
@@ -35,9 +38,9 @@ function App() {
         <Route path="/serviceDetail/:_id">
           <ServiceDetail/>
         </Route>
-        <Route path="/checkout/:_id">
+        <PrivateRoute path="/checkout/:_id">
           <Checkout/>
-        </Route>
+        </PrivateRoute>
         <Route path="/sideBar">
           <Sidebar/>
         </Route>
@@ -50,9 +53,9 @@ function App() {
         <Route path="/myOrder">
           <MyOrders/>
         </Route>
-        <Route path="/addAdmin">
+        <PrivateRoute path="/addAdmin">
           <AddAdmin/>
-        </Route>
+        </PrivateRoute>
         <Route path="/login">
           <Login/>
         </Route>
