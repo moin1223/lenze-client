@@ -1,79 +1,89 @@
-import React, { useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
+import react, { useState } from 'react';
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
 
 const AddService = () => {
-    
-    const [info, setInfo] = useState({});
-    const [file, setFile] = useState(null);
 
-    const handleBlur = e => {
-        const newInfo = { ...info };
-        newInfo[e.target.name] = e.target.value;
-        setInfo(newInfo);
-    }
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [imageURL, setIMageURL] = useState(null)
+    const history = useHistory();
+    const onSubmit = data => {
+        const serviceData = {
+            title: data.title,
+            description: data.description,
+            price: data.price,
+            imageURL: imageURL
+        }
 
-    const handleFileChange = (e) => {
-        const newFile = e.target.files[0];
-        setFile(newFile);
-    }
+        const url = `https://blooming-island-74294.herokuapp.com/addService`
 
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
- 
-
-        const formData = new FormData()
-        console.log(info);
-        formData.append('file', file);
-        formData.append('ServiceName', info.ServiceName);
-        formData.append('price', info.price);
-        formData.append('ServiceDescription', info.ServiceDescription);
-
-        fetch('https://ancient-scrubland-17514.herokuapp.com/addService', {
-            method: 'POST',
-            body: formData
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(serviceData),
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
+        .then(res => res.json())
+        .then(data => {
+            alert('Service is successfully added')
+             history.replace('/');
+        })
+
+    };
+
+    const handleImageUpload = event => {
+
+        console.log(event.target.files[0])
+        const imageData = new FormData();
+        imageData.set('key', 'a8630a61c226e1cd5552e6018232a737');
+        imageData.append('image', event.target.files[0]);
+
+        axios.post('https://api.imgbb.com/1/upload',
+            imageData
+        )
+            .then(function (response) {
+                setIMageURL(response.data.data.display_url);
             })
-            .catch(error => {
-                console.error(error)
-            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+
     }
 
-     
-  
+
     return (
-        <section className="container-fluid row">
-            <div className="col-md-4">
-            <Sidebar></Sidebar>
+
+        <div className="container shadow-lg p-3 mb-2  rounded col-md-8 col-sm-8 col-6">
+            <h3 className="text-center">Add Service</h3>
+            <div className="row pt-3 mx-auto">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="col-10 form-group mx-auto">
+                        <label className="mb-1"><b>Service Title</b></label>
+                        <input  {...register("title")} className="form-control" type="text" placeholder="Enter title" />
+                    </div>
+                    <div className="col-10 form-group mx-auto mt-3">
+                        <label className="mb-1"><b>Service Price</b></label>
+                        <input  {...register("price")} className="form-control" type="text" placeholder="Enter price" />
+                    </div>
+                    <div className="col-10 form-group mx-auto mt-3">
+                        <label className="mb-1"><b>Description</b></label>
+                        <textarea  {...register("description")} rows="5" className="form-control" type="text" placeholder="Enter Description" />
+                    </div>
+                    <div className="col-10 form-group mx-auto mt-3">
+                        <label className="mb-1"><b>Upload Image</b></label><br />
+                        <input type="file" onChange={handleImageUpload} />
+                    </div>
+                    <div className="col-10 text-center w-100 mt-3">
+
+                        <button className="w-50" type="submit" class="btn btn-success">Update Service</button>
+
+                    </div>
+                </form>
             </div>
-        
-        <div className="col-md-8 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
-            <h5 className="text-brand">Add Service</h5>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">ServiceName</label>
-                    <input onBlur={handleBlur} type="text" className="form-control" name="ServiceName" placeholder="Name" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">price</label>
-                    <input onBlur={handleBlur} type="text" className="form-control" name="price" placeholder="price" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">ServiceDescription</label>
-                    <input onBlur={handleBlur} type="text" className="form-control" name="ServiceDescription" placeholder="Description" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Upload a image</label>
-                    <input onChange={handleFileChange} type="file" className="form-control" id="exampleInputPassword1" placeholder="Picture" />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
         </div>
-    </section>
-       
     );
 };
 

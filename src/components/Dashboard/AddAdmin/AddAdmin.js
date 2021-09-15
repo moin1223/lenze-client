@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
+
+import React from 'react';
+import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
+
+
+
+
 
 const AddAdmin = () => {
-    
-    const [info, setInfo] = useState({});
 
+    const { register, handleSubmit } = useForm();
+    const history = useHistory();
+    const onSubmit = data => {
+        const AdminData = {    
+            email: data.email,
+            password: data.password,
+        }
 
-    const handleBlur = e => {
-        const newInfo = { ...info };
-        newInfo[e.target.name] = e.target.value;
-        setInfo(newInfo);
-    }
+        const url = `https://blooming-island-74294.herokuapp.com/addAdmin`
 
-
-
-    const handleSubmit = () => {
-        const formData = new FormData()
-        console.log(info);
-        formData.append('Name', info.Name);
-        formData.append('email', info.email);
-
-        fetch('https://ancient-scrubland-17514.herokuapp.com/addAdmins', {
-            method: 'POST',
-            body: formData
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(AdminData),
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
+        .then(res => res.json())
+        .then(data => {
+            alert(' Admin is successfully added')  
+             history.push('/dashboard');
+        })
 
-     
-  
+    };
+
+
     return (
-        <section className="container-fluid row">
-            <div className="col-md-4">
-            <Sidebar/>
-            </div>
-        
-        <div className="col-md-8 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
-            <h5 className="text-brand">Add Service</h5>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Name</label>
-                    <input onBlur={handleBlur} type="text" className="form-control" name="Name" placeholder="Name" />
+      
+        <div className="container shadow-lg p-3 mb-2  rounded col-md-8 col-sm-8 col-6">
+        <h3 className="text-center">Add Admin</h3>
+        <div className="row pt-3 mx-auto">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="col-10 form-group mx-auto mt-3">
+                    <label><b>Email</b></label>
+                    <input  {...register("email")} className="form-control"  type="text" placeholder="Enter Email" required />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Email</label>
-                    <input onBlur={handleBlur} type="text" className="form-control" name="email" placeholder="email" />
+                <div className="col-10 form-group mx-auto mt-3">
+                    <label><b>Password</b></label>
+                    <input  {...register("password")} className="form-control" type="text" placeholder="Enter Password" />
                 </div>
-               
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <div className="col-10 text-center w-100 mt-3 mt-3">
+                        <button className="w-50" type="submit" class="btn btn-success">submit</button>
+                    </div>
             </form>
         </div>
-    </section>
-       
+    </div>
+        
     );
 };
 

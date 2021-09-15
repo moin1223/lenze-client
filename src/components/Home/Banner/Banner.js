@@ -1,14 +1,15 @@
 import React from 'react';
+import "./Banner.css"
 import Bannerimg from '../../../Asset/images/Banner.jpg'
 
 const Banner = () => {
  
     return (
     
-        <section className="container">
+        <section className="container ">
             <div className="row">
 
-                <div className="col-md-6  d-flex justify-content-center align-items-center mb-5">
+                <div className=" content col-md-6  d-flex justify-content-center align-items-center mb-5">
                     <div className="w-50">
                         <h1>  <br/>Hello ..</h1>
                         <h3> We provide Awesome photography service
@@ -18,7 +19,7 @@ const Banner = () => {
                     </div>
 
                 </div>
-                <div className="col-md-6 mt-5 d-flex justify-content-center">
+                <div className="col-md-6 mt-5 d-flex justify-content-center feature-img">
                     <img  style ={{height:"400px"}} className="img-fluid" src={Bannerimg} alt="..." />
                 </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Header.css"
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -11,15 +12,13 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ms-auto">
-             
+            <div className="animation navbar-nav ms-auto">
+            <Link className="nav-link  active me-3 navbar-brand " to="..."><b>Home</b></Link>
+            <Link className="nav-link  active me-3 navbar-brand" to="..."><b>Services</b></Link>
+            <Link className="nav-link  active me-3 navbar-brand" to="..."><b>Contact Us</b></Link>
+              <Link className="nav-link  active me-3 navbar-brand" to="/dashboard/prifle"><b>Dashboard</b></Link>
+              <Link className="nav-link  active me-3 navbar-brand" to="/login"><b>Login</b></Link>
             
-              <Link className="nav-link  active  me-3" to="/home">Home</Link>
-              <Link className="nav-link  active  me-3" to="/sideBar">Dashboard</Link>
-              <Link className="nav-link  active  me-3" to="/login">Login</Link>
-            
-             
-           
             </div>
           </div>
         </div>

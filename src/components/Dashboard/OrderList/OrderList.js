@@ -1,44 +1,83 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
-import SingleOrderList from '../SingleOrderList/SingleOrderList';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
+
+
+
+
+
 
 const OrderList = () => {
+    const [orders,setOrders] = useState([])
+    const history = useHistory();
 
-    const [admissions, setAdmissions] = useState([]);
 
     useEffect(() => {
-        fetch(`https://ancient-scrubland-17514.herokuapp.com/Orders`)
+        fetch('https://blooming-island-74294.herokuapp.com/Orders')
             .then(res => res.json())
-            .then(data =>  setAdmissions(data))
-    },[])
+            .then(data =>{
+                
+                setOrders(data)
+               
+            })
+    }, [])
+
+
+
+    const handleDelete = (_id) => {
+       
+        fetch(`https://blooming-island-74294.herokuapp.com/deleteOrder/${_id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result){
+                
+            }
+
+            alert('order is successfully deleted');
+           
+        });
+    }
+
+
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-4">
-                    <Sidebar></Sidebar>
-                </div>
-                <div className="col-md-8">
-                    <h3 className="m-5 text-center">Order List</h3>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>User Name</th>
-                                <th>Email</th>
-                                <th>Couse Name</th>
-                                <th>AllAdmisson Date</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                               admissions.map(add => <SingleOrderList add={add}></SingleOrderList>)
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+
+<div className="container shadow-lg p-3 mb-2  rounded col-md-8 col-sm-12 col-6">
+<table className="table">
+  <thead>
+    <tr>
+   
+      <th scope="col">Email</th>
+      <th scope="col">Service Name</th>
+      <th scope="col"> Price</th>
+      <th scope="col">Address</th>
+      <th scope="col">Status</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody >
+    {orders.map((order) => (
+    <tr  key={order._id}>
+  
+      <td>{order.email}</td>
+      <td>{order.serviceName}</td>
+      <td>{order.price}</td>
+      <td>{order.Address}</td>
+      <td>Pending</td>
+      <td>
+        
+     
+      <button className="btn btn-danger" variant="contained" onClick={() =>  handleDelete(order._id)}>Delete</button> 
+      
+      </td>
+    </tr>
+         ))}
+    </tbody>
+    </table>
+    </div>
     );
 };
 
