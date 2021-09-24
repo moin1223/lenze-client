@@ -1,11 +1,11 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router';
 
 const AddService = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
     const [imageURL, setIMageURL] = useState(null)
     const history = useHistory();
     const onSubmit = data => {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 
@@ -36,6 +35,7 @@ const OrderList = () => {
             }
 
             alert('order is successfully deleted');
+            history.replace('/');
            
         });
     }

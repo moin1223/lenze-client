@@ -1,10 +1,10 @@
-import react from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router';
 
 const AddReview = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
     const user = JSON.parse(localStorage.getItem('user'));
     const history = useHistory();
 

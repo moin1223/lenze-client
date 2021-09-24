@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import ProcessPayment from '../ProcessPayment/ProcessPayment.js';
 
 const Booking = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
     const user = JSON.parse(localStorage.getItem('user'));
     const [singleService,setSingleService] = useState()
     const history = useHistory();

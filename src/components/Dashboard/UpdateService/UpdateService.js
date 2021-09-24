@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
@@ -8,7 +8,7 @@ const UpdateService = () => {
     const [singleService,setSingleService] = useState()
     const {id} = useParams()
     const history = useHistory()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
     const [imageURL, setIMageURL] = useState(null)
 
     useEffect(() => {
