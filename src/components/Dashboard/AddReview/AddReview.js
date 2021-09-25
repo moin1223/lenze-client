@@ -41,7 +41,7 @@ const AddReview = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="col-10 form-group mx-auto">
                         <label className="mb-1"><b>Name</b></label>
-                        <input  {...register("name")} className="form-control" type="text" value={user.name} />
+                        <input  {...register("name")} className="form-control" type="text" value={user?.name} />
                     </div>
                     <div className="col-10 form-group mx-auto mt-3">
                         <label className="mb-1"><b>Address</b></label>
