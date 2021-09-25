@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Route } from 'react-router-dom';
 import { UserContext } from '../App';
 import Sidebar from '../../src/components/Dashboard/Sidebar/Sidebar'
 import DashboardNabvar from '../components/Dashboard/DashboardNabvar/DashboardNabvar';
@@ -15,7 +15,7 @@ import Profile from '../components/Dashboard/Profile/Profile'
 
 const Dashboard = () => {
   
-const [show,setShow] = useContext(UserContext)
+const [show] = useContext(UserContext)
  
     return (
         <>
