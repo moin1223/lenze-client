@@ -55,19 +55,13 @@ const Sidebar = () => {
     </>
 }
 <li className="mt-4">
-      <CgProfile fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/dashboard/prifle"><b>Profile</b></Link>
+      <CgProfile fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/dashboard/Profile"><b>Profile</b></Link>
     </li>
     <li className="mt-4">
       <RiHome8Line fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/home"><b>Back to Home</b></Link>
     </li>
   </ul>
- 
-
-  
-
 </div>
-
-
     </>
 
   );

@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Route } from 'react-router-dom';
+
+
+import { BrowserRouter as  Switch, Route } from 'react-router-dom';
+
 import { UserContext } from '../App';
 import Sidebar from '../../src/components/Dashboard/Sidebar/Sidebar'
+
 import DashboardNabvar from '../components/Dashboard/DashboardNabvar/DashboardNabvar';
 import AddService from '../components/Dashboard/AddService/AddService';
 import ManageService from '../components/Dashboard/ManageService/ManageService';
@@ -13,13 +17,17 @@ import OrderList from '../components/Dashboard/OrderList/OrderList';
 import MyOrders from '../components/Dashboard/MyOrders/MyOrders';
 import Profile from '../components/Dashboard/Profile/Profile'
 
+
+
+
+
 const Dashboard = () => {
   
 const [show] = useContext(UserContext)
  
     return (
         <>
-    
+    <Switch>
      <DashboardNabvar/>
       <div className="row">
         { show?
@@ -52,12 +60,13 @@ const [show] = useContext(UserContext)
         <Route path="/dashboard/MyOrders">
        <MyOrders/>
         </Route>
-        <Route path="/dashboard/prifle">
+        <Route path="/dashboard/Profile">
        <Profile/>
         </Route>
-      
+    
      </div>
-          
+     </Switch>
+      
         </>
     );
 };
