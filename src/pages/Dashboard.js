@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as  Switch, Route } from 'react-router-dom';
 import { UserContext } from '../App';
 import Sidebar from '../../src/components/Dashboard/Sidebar/Sidebar'
 import DashboardNabvar from '../components/Dashboard/DashboardNabvar/DashboardNabvar';
@@ -12,10 +12,11 @@ import Booking from '../components/Dashboard/Booking/Booking';
 import OrderList from '../components/Dashboard/OrderList/OrderList';
 import MyOrders from '../components/Dashboard/MyOrders/MyOrders';
 import Profile from '../components/Dashboard/Profile/Profile'
+<Switch></Switch>
 
 const Dashboard = () => {
 
-  const [show, setShow] = useContext(UserContext)
+  const [show] = useContext(UserContext)
 
   return (
     <>
