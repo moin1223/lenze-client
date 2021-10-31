@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React from 'react'; 
 import { CgProfile } from "react-icons/cg";
 import { GoListUnordered } from "react-icons/go";
 import { AiFillFolderAdd } from "react-icons/ai";
@@ -11,20 +11,6 @@ import { Link } from 'react-router-dom';
 
 
 const Sidebar = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  const [isAdmin, setIsAdmin] = useState(false);
-  console.log(isAdmin)
-
-  useEffect(() => {
-      fetch('https://blooming-island-74294.herokuapp.com/isAdmin', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ email: user.email })
-      })
-          .then(res => res.json())
-          .then(data => setIsAdmin(data));
-  },[user.email])
-  
  
 
 
@@ -35,7 +21,9 @@ const Sidebar = () => {
 
   <div className=" col-md-3 col-sm-3 col-6 container bg-success bg-gradient">
   <ul class="nav flex-column">
-  {  isAdmin && <>
+    <li className="mt-4">
+      <CgProfile fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/dashboard/Profile"><b>Profile</b></Link>
+    </li>
     <li className="mt-4">
     <AiFillFolderAdd fontSize="2em" /><Link className="text-decoration-none text-dark m-2" to="/dashboard/addService"><b>AddService</b></Link>
     </li>
@@ -52,16 +40,14 @@ const Sidebar = () => {
     <li className="mt-4">
       <GoListUnordered fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/dashboard/manageService"><b>ManageService</b></Link>
     </li>
-    </>
-}
-<li className="mt-4">
-      <CgProfile fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/dashboard/Profile"><b>Profile</b></Link>
-    </li>
     <li className="mt-4">
       <RiHome8Line fontSize="2em" /> <Link className="text-decoration-none text-dark m-2" to="/home"><b>Back to Home</b></Link>
     </li>
   </ul>
+
 </div>
+
+
     </>
 
   );

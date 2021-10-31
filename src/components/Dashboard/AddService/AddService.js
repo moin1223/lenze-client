@@ -28,7 +28,7 @@ const AddService = () => {
         .then(res => res.json())
         .then(data => {
             alert('Service is successfully added')
-             history.replace('/');
+            history.push('/')
         })
 
     };
@@ -78,7 +78,7 @@ const AddService = () => {
                     </div>
                     <div className="col-10 text-center w-100 mt-3">
 
-                        <button className="w-50" type="submit" class="btn btn-success">Update Service</button>
+                        <button className="w-50" type="submit" class="btn btn-success">Add Service</button>
 
                     </div>
                 </form>

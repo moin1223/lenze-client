@@ -1,11 +1,7 @@
 import React, { useContext } from 'react';
-
-
-import { BrowserRouter as  Switch, Route } from 'react-router-dom';
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserContext } from '../App';
 import Sidebar from '../../src/components/Dashboard/Sidebar/Sidebar'
-
 import DashboardNabvar from '../components/Dashboard/DashboardNabvar/DashboardNabvar';
 import AddService from '../components/Dashboard/AddService/AddService';
 import ManageService from '../components/Dashboard/ManageService/ManageService';
@@ -17,58 +13,53 @@ import OrderList from '../components/Dashboard/OrderList/OrderList';
 import MyOrders from '../components/Dashboard/MyOrders/MyOrders';
 import Profile from '../components/Dashboard/Profile/Profile'
 
-
-
-
-
 const Dashboard = () => {
-  
-const [show] = useContext(UserContext)
- 
-    return (
-        <>
-    <Switch>
-     <DashboardNabvar/>
+
+  const [show, setShow] = useContext(UserContext)
+
+  return (
+    <>
+
+      <DashboardNabvar />
       <div className="row">
-        { show?
-  <Sidebar/>
-  :
-  null
+        {show ?
+          <Sidebar />
+          :
+          null
         }
-    
-     <Route path="/dashboard/addService">
-          <AddService/>
+
+        <Route path="/dashboard/addService">
+          <AddService />
         </Route>
         <Route path="/dashboard/manageService">
-          <ManageService/>
+          <ManageService />
         </Route>
         <Route path="/dashboard/addAdmin">
-          <AddAdmin/>
+          <AddAdmin />
         </Route>
         <Route path="/dashboard/addReview">
-          <AddReview/>
+          <AddReview />
         </Route>
         <Route path="/dashboard/edit/:id">
-          <UpdateService/>
+          <UpdateService />
         </Route>
         <Route path="/dashboard/booking/:id">
-         <Booking/>
+          <Booking />
         </Route>
         <Route path="/dashboard/Orderlist">
-       <OrderList/>
+          <OrderList />
         </Route>
         <Route path="/dashboard/MyOrders">
-       <MyOrders/>
+          <MyOrders />
         </Route>
         <Route path="/dashboard/Profile">
-       <Profile/>
+          <Profile />
         </Route>
-    
-     </div>
-     </Switch>
-      
-        </>
-    );
+
+      </div>
+
+    </>
+  );
 };
 
 export default Dashboard;

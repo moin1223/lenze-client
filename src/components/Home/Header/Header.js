@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
+      <div className="bg">
         <div className="container">
              <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
@@ -25,6 +26,7 @@ const Header = () => {
         </div>
       </nav>
 
+        </div>
         </div>
        
     );

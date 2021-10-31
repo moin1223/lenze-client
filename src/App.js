@@ -11,11 +11,7 @@ import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
 import Login from  './components/Login/Login'
 import PrivateRoute from './components/Login/PrivateRoute'
 import Dashboard from './pages/Dashboard'
-
-
 export const UserContext = createContext();
-
-
 function App() {
   const [allService,setAllSerVice] = useState([])
   const [show,setShow] = useState()

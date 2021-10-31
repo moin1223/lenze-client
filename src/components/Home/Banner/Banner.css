@@ -31,3 +31,23 @@
         visibility: visible;
     }
 }
+
+.header{
+    height: 500px;
+    background-color:#00C8AC;
+   
+}
+.startButton{
+    background-color:#04AA6D;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+   
+/* .button:hover{
+    background-color:red;
+    color: lawngreen;
+} */

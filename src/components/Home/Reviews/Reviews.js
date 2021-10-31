@@ -1,19 +1,11 @@
   
 import React, { useEffect, useState } from 'react';
-// import photo1 from '../../images/photo1.jpg'
-// import photo2 from '../../images/photo2.jpg'
-// import photo3 from '../../images/photo3.jpg'
-// import photo4 from '../../images/photo4.jpg'
-// import "./SingleCard.css"
-
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import "./Reviews.css"
 
 import Slider from "react-slick"
 import SingleCard from '../Review/Review';
-
-
-
 
 
 const Reviews = () => {
@@ -70,8 +62,8 @@ const Reviews = () => {
     return (
       
       
-           <div className="mt-5 ms-3">
-               <h1 className="mb-5 text-center"> Our Testimonial</h1>
+           <div className="mt-5 ms-3 reviews">
+               <h1 className="mb-5 mt-5 text-center"> Our Testimonial</h1>
     
     <Slider {...settings}>
        

@@ -29,7 +29,7 @@ const Service = (props) => {
                         <p className="text-muted">{description}</p>
                         <h3>{price}</h3>
                         <Link className="text-decoration-none" to={`/dashboard/booking/${_id}`}>
-          <p href="#" className="bookButton">book now</p>
+          <button href="#" className="bookButton">book now</button>
           </Link>
                     </div>
                 </div>

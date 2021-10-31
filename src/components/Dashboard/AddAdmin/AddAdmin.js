@@ -29,7 +29,7 @@ const AddAdmin = () => {
         .then(res => res.json())
         .then(data => {
             alert(' Admin is successfully added')  
-             history.push('/dashboard');
+             history.push('/dashboard/addAdmin');
         })
 
     };

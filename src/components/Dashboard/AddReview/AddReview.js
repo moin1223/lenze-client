@@ -28,7 +28,7 @@ const AddReview = () => {
             .then(res => res.json())
             .then(data => {
                 alert('Your Review is successfully added')
-                history.replace('/');
+                history.push('/')
             })
 
     };

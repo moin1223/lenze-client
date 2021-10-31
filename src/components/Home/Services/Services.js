@@ -16,7 +16,7 @@ const Services = () => {
 
     return (
         <>
-             <div className="custom-container mt-5 pt-5">
+             <div className="custom-container mt-4 pt-4">
             <h1 style={{fontWeight: '700'}} className="m-5 text-center"><span style={{color: '#171B4E'}}>Provide awesome</span> <span style={{color: '#7AB259'}}>services</span></h1>
             { allService.length > 0 ?
                 <div className="row">

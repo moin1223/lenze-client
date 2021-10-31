@@ -88,7 +88,7 @@ const UpdateService = () => {
                     <input type="file" onChange={handleImageUpload}  />
                 </div>
                 <div className="col-10 text-center w-100 mt-3">
-                        <button className="w-50" type="submit" class="btn btn-success">Add Service</button>
+                        <button className="w-50" type="submit" class="btn btn-success">Update Service</button>
                     </div>
             </form>
         </div>
